@@ -9,12 +9,8 @@ class Select_Character_Stage:
         self.red = (255,0,0)
         self.green = (0,255,0)
         self.blue = (0,0,255)
-        
         self.display_width = 800
         self.display_height = 600
-        gameDisplay = pygame.display.set_mode((self.display_width, self.display_height))
-        pygame.display.set_caption('Character Selection')
-        
         self.clock = pygame.time.Clock()
         self.FPS = 30
         self.font = pygame.font.SysFont(None, 25)
@@ -25,11 +21,14 @@ class Select_Character_Stage:
 
     def P1_character_select_menu(self):
         self.gameExit = False
-
+        
+        gameDisplay = pygame.display.set_mode((self.display_width, self.display_height))
+        pygame.display.set_caption('Character Selection')
+        
         while not self.gameExit:
             select_your_character = pygame.image.load("text\Select-Your-Character.png")#Show this text in the middle of the screen.
             select_your_character = pygame.transform.scale(select_your_character, (300,300))
-            gameDisplay.blit(select_your_character, (390,55))
+            gameDisplay.blit(select_your_character, (390,55)
             
             elentriana = pygame.image.load("Elentriana\stand1_0.png")#red hair girl
             elentriana = pygame.transform.scale(elentriana, (150,150))
@@ -55,7 +54,7 @@ class Select_Character_Stage:
             refaian = pygame.transform.scale(refaian, (150,150))
             gameDisplay.blit(refaian, (678,421))
 
-            select_button = pygame.image.load("text\Select.png")#confirm selecting character button
+            select_button = pygame.image.load("text\Select.png")
             gameDisplay.blit(select_button, (380,555))
 
             pygame.display.update()
@@ -174,41 +173,41 @@ class Select_Character_Stage:
                         if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
                      and mPos[1] <= 135) and mPress == 1):
                             pass
-                        gameDisplay.blit(p1_show, (143,421))
+                        gameDisplay.blit(p1_show, (143,421)
                         pygame.display.update()
                                          
                     elif self.p1_character == 2:
                         if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
                      and mPos[1] <= 135) and mPress == 1):
                             pass
-                        gameDisplay.blit(p1_show, (250,421))
+                        gameDisplay.blit(p1_show, (250,421)
                         pygame.display.update()
                                          
                     elif self.p1_character == 3:
                         if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
                      and mPos[1] <= 135) and mPress == 1):
                             pass
-                        gameDisplay.blit(p1_show, (357,421))
+                        gameDisplay.blit(p1_show, (357,421)
                         pygame.display.update()
                                          
                     elif self.p1_character == 4:
                         if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
                      and mPos[1] <= 135) and mPress == 1):
                             pass
-                        gameDisplay.blit(p1_show, (464,421))
+                        gameDisplay.blit(p1_show, (464,421)
                         pygame.display.update()
                                          
                     elif self.p1_character == 5:
                         if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
                      and mPos[1] <= 135) and mPress == 1):
                             pass
-                        gameDisplay.blit(p1_show, (571,421))
+                        gameDisplay.blit(p1_show, (571,421)
                         pygame.display.update()
                     elif self.p1_character == 6:
                         if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
                      and mPos[1] <= 135) and mPress == 1):
                             pass
-                        gameDisplay.blit(p1_show, (678,421))
+                        gameDisplay.blit(p1_show, (678,421)
                         pygame.display.update()
 
                     print("You have selected a character!")
@@ -218,10 +217,10 @@ class Select_Character_Stage:
     def P2_character_select_menu(self):
         self.gameExit = False
 
-        while not self.gameExit:
+                while not self.gameExit:
             select_your_character = pygame.image.load("text\Select-Your-Character.png")#Show this text in the middle of the screen.
             select_your_character = pygame.transform.scale(select_your_character, (300,300))
-            gameDisplay.blit(select_your_character, (390,55))
+            gameDisplay.blit(select_your_character, (390,55)
             
             elentriana = pygame.image.load("Elentriana\stand1_0.png")#red hair girl
             elentriana = pygame.transform.scale(elentriana, (150,150))
@@ -366,42 +365,42 @@ class Select_Character_Stage:
                         if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
                      and mPos[1] <= 135) and mPress == 1):
                             pass
-                        gameDisplay.blit(p2_show, (143,421))
+                        gameDisplay.blit(p2_show, (143,421)
                         pygame.display.update()
                                          
                     elif self.p1_character == 2:
                         if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
                      and mPos[1] <= 135) and mPress == 1):
                             pass
-                        gameDisplay.blit(p2_show, (250,421))
+                        gameDisplay.blit(p2_show, (250,421)
                         pygame.display.update()
                                          
                     elif self.p1_character == 3:
                         if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
                      and mPos[1] <= 135) and mPress == 1):
                             pass
-                        gameDisplay.blit(p2_show, (357,421))
+                        gameDisplay.blit(p2_show, (357,421)
                         pygame.display.update()
                                          
                     elif self.p1_character == 4:
                         if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
                      and mPos[1] <= 135) and mPress == 1):
                             pass
-                        gameDisplay.blit(p2_show, (464,421))
+                        gameDisplay.blit(p2_show, (464,421)
                         pygame.display.update()
                                          
                     elif self.p1_character == 5:
                         if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
                      and mPos[1] <= 135) and mPress == 1):
                             pass
-                        gameDisplay.blit(p2_show, (571,421))
+                        gameDisplay.blit(p2_show, (571,421)
                         pygame.display.update()
                                          
                     elif self.p1_character == 6:
                         if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
                      and mPos[1] <= 135) and mPress == 1):
                             pass
-                        gameDisplay.blit(p2_show, (678,421))
+                        gameDisplay.blit(p2_show, (678,421)
                         pygame.display.update()
                     print("You have selected a character!")
                     print(self.p2_character)
@@ -413,4 +412,3 @@ class Select_Character_Stage:
         quit()
 
         
-Select_Character_Stage()#can run but show only black screen and freeze can't do anything even close [need end task to close].
