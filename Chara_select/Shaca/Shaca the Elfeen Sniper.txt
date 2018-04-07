@@ -1,0 +1,20 @@
+Shaca the Elfeen Sniper
+Age: 200
+Height: 165
+Weight: 45
+
+Story: Shaca is the only daugther of Lulynn family which lead the Elfeen tribe.
+The tribe settle deep in the forest in to the east of Legatuan kingdom which is in the protect by Karuda's Church.
+Shaca has grown in peaceful place because of war is not come close to the elves.
+Her skills of bow are from hunting the animals in daily life.
+One day things went opposite, the elder dragon that should be in hibernation has early awoke by the power of demon lord and attacked the Elfeen village.
+With the power of the spirits and Shaca's bow skill which is said that never miss the target by every elf, help the tribe slain the dragon.
+But sadly, Shaca parents are passed away by the dragon's flame.
+Even the elves have the power of the spirits to cure wounds, but it cannot bring the dead back to life.
+Since that day, Shaca, in the name of tribe's cheif, she declared war against the demonkind.
+
+HP:???
+DP:???
+
+Passive Skills:	1. Piercing Shot: Every 3 turns, Shaca borrow the power of light spirit. Her arrow pierce surpass the enemies from front to back, dealing damage to all of the enemies but reduce Attack Point by 30 percent. Demon Type take more damage by 20 percent from this skill.
+		2. Trinity Arrow: Every 2 turns, with her ability, Shaca rapidly fire her arrow 3 times in a row. An enemy grant half damage from Shaca AP but 3 times.
