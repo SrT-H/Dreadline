@@ -14,12 +14,15 @@ class Select_Character_Stage:
         self.display_height = 768
         self.gameDisplay = pygame.display.set_mode((self.display_width, self.display_height))
         pygame.display.set_caption('Character Selection')
+        self.gameDisplay.fill(self.white)
         
         self.clock = pygame.time.Clock()
         self.FPS = 30
         self.font = pygame.font.SysFont(None, 25)
         self.p1_character = 0
         self.p2_character = 0
+        self.p1_character_pick = 0
+        self.p2_character_pick = 0
         self.stage = 0
         self.gameExit = False
 
@@ -28,35 +31,35 @@ class Select_Character_Stage:
 
         while not self.gameExit:
             select_your_character = pygame.image.load("text\Select-Your-Character.png")#Show this text in the middle of the screen.
-            #select_your_character = pygame.transform.scale(select_your_character, (300,300))
-            self.gameDisplay.blit(select_your_character, (390,55))
+            select_your_character = pygame.transform.scale(select_your_character, (800,50))
+            self.gameDisplay.blit(select_your_character, (235,30))
             
-            elentriana = pygame.image.load("Elentriana\stand1_0.png")#red hair girl
-            elentriana = pygame.transform.scale(elentriana, (150,150))
-            self.gameDisplay.blit(elentriana, (143,421))
+            elentriana = pygame.image.load("Pic\Chara.png")#red hair girl
+            elentriana = pygame.transform.scale(elentriana, (100,100))
+            self.gameDisplay.blit(elentriana, (330,498))
 
-            zalana = pygame.image.load("Zalana\stand1_0.png")#pink hair girl
-            zalana = pygame.transform.scale(zalana, (150,150))
-            self.gameDisplay.blit(zalana, (250,421))
+            zalana = pygame.image.load("Pic\Chara.png")#pink hair girl
+            zalana = pygame.transform.scale(zalana, (100,100))
+            self.gameDisplay.blit(zalana, (430,498))
 
-            shaca = pygame.image.load("Shaca\stand1_0.png")#yellow hair girl
-            shaca = pygame.transform.scale(shaca, (150,150))
-            self.gameDisplay.blit(shaca, (357,421))
+            shaca = pygame.image.load("Pic\Chara.png")#yellow hair girl
+            shaca = pygame.transform.scale(shaca, (100,100))
+            self.gameDisplay.blit(shaca, (530,498))
 
-            kazuki = pygame.image.load("Kazuki\stand1_0.png")#black hair man
-            kazuki = pygame.transform.scale(kazuki, (150,150))
-            self.gameDisplay.blit(kazuki, (464,421))
+            kazuki = pygame.image.load("Pic\Chara.png")#black hair man
+            kazuki = pygame.transform.scale(kazuki, (100,100))
+            self.gameDisplay.blit(kazuki, (630,498))
 
-            lucifer = pygame.image.load("Lucifer\stand1_0.png")#silver hair demon
-            lucifer = pygame.transform.scale(lucifer, (150,150))
-            self.gameDisplay.blit(lucifer, (571,421))
+            lucifer = pygame.image.load("Pic\Chara.png")#silver hair demon
+            lucifer = pygame.transform.scale(lucifer, (100,100))
+            self.gameDisplay.blit(lucifer, (730,498))
 
-            refaian = pygame.image.load("Refaian\stand1_0.png")#oriharukon knight with broken blade
-            refaian = pygame.transform.scale(refaian, (150,150))
-            self.gameDisplay.blit(refaian, (678,421))
+            refaian = pygame.image.load("Pic\Chara.png")#oriharukon knight with broken blade
+            refaian = pygame.transform.scale(refaian, (100,100))
+            self.gameDisplay.blit(refaian, (830,498))
 
             select_button = pygame.image.load("text\Select.png")#confirm selecting character button
-            self.gameDisplay.blit(select_button, (380,555))
+            self.gameDisplay.blit(select_button, (555,640))
 
             pygame.display.update()
             
@@ -70,146 +73,126 @@ class Select_Character_Stage:
                     self.gameExit = True
 
                 #Elentriana----------    
-                if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):                
+                if ((mPos[0] >= 330 and mPos[0] <= 429 and mPos[1] >= 498
+                     and mPos[1] <= 598) and mPress == 1):                
                     print("Elentriana")
-                    self.gameDisplay.fill(self.black)
-                    elentrianaShow = pygame.image.load("Elentriana\stand1_0.png")#Real one shows character artwork.
+                    self.gameDisplay.fill(self.white)
+                    elentrianaShow = pygame.image.load("Pic\Chara.png")#Real one shows character artwork.
                     elentrianaShow = pygame.transform.scale(elentrianaShow, (300,300))
-                    self.gameDisplay.blit(elentrianaShow, (248,281))
+                    self.gameDisplay.blit(elentrianaShow, (330,135))
                     
-                    profile_show = pygame.image.load("Elentriana\stand1_0.png")#Real one is full profile of character show.
+                    profile_show = pygame.image.load("Pic\Chara.png")#Real one is full profile of character show.
                     profile_show = pygame.transform.scale(profile_show, (300,300))
-                    self.gameDisplay.blit(profile_show, (500,261))
+                    self.gameDisplay.blit(profile_show, (630,135))
                     
                     pygame.display.update()
                     self.p1_character = 1
 
                 #Zalana----------                        
-                if ((mPos[0] >= 200 and mPos[0] <= 300 and mPos[1] >= 25
-                     and mPos[1] <= 140) and mPress == 1):
+                if ((mPos[0] >= 430 and mPos[0] <= 529 and mPos[1] >= 498
+                     and mPos[1] <= 598) and mPress == 1):
                     print("Zalana")
-                    self.gameDisplay.fill(self.black)
-                    zalanaShow = pygame.image.load("Zalana\stand1_0.png")
+                    self.gameDisplay.fill(self.white)
+                    zalanaShow = pygame.image.load("Pic\Chara.png")
                     zalanaShow = pygame.transform.scale(zalanaShow, (300,300))
-                    self.gameDisplay.blit(zalanaShow, (248,281))
+                    self.gameDisplay.blit(zalanaShow, (330,135))
                     
-                    profile_show = pygame.image.load("Zalana\stand1_0.png")
+                    profile_show = pygame.image.load("Pic\Chara.png")
                     profile_show = pygame.transform.scale(profile_show, (300,300))
-                    self.gameDisplay.blit(profile_show, (500,281))
+                    self.gameDisplay.blit(profile_show, (630,135))
                     
                     pygame.display.update()
                     self.p1_character = 2
 
                 #Shaca----------    
-                if ((mPos[0] >= 385 and mPos[0] <= 455 and mPos[1] >= 35
-                     and mPos[1] <= 145) and mPress == 1):
+                if ((mPos[0] >= 530 and mPos[0] <= 629 and mPos[1] >= 498
+                     and mPos[1] <= 598) and mPress == 1):
                     print("Shaca")
-                    self.gameDisplay.fill(self.black)
-                    shacaShow = pygame.image.load("Shaca\stand1_0.png")
+                    self.gameDisplay.fill(self.white)
+                    shacaShow = pygame.image.load("Pic\Chara.png")
                     shacaShow = pygame.transform.scale(shacaShow, (300,300))
-                    self.gameDisplay.blit(shacaShow, (248,281))
+                    self.gameDisplay.blit(shacaShow, (330,135))
 
-                    profile_show = pygame.image.load("Shaca\stand1_0.png")
+                    profile_show = pygame.image.load("Pic\Chara.png")
                     profile_show = pygame.transform.scale(profile_show, (300,300))
-                    self.gameDisplay.blit(profile_show, (500,281))
+                    self.gameDisplay.blit(profile_show, (630,135))
                     
                     pygame.display.update()
                     self.p1_character = 3
 
                 #Kazuki----------    
-                if ((mPos[0] >= 530 and mPos[0] <= 655 and mPos[1] >= 10
-                     and mPos[1] <= 150) and mPress == 1):
+                if ((mPos[0] >= 630 and mPos[0] <= 729 and mPos[1] >= 498
+                     and mPos[1] <= 598) and mPress == 1):
                     print("Kazuki")
-                    self.gameDisplay.fill(self.black)
-                    kazukiShow = pygame.image.load("Kazuki\stand1_0.png")
+                    self.gameDisplay.fill(self.white)
+                    kazukiShow = pygame.image.load("Pic\Chara.png")
                     kazukiShow = pygame.transform.scale(kazukiShow, (300,300))
-                    self.gameDisplay.blit(kazukiShow, (248,281))
+                    self.gameDisplay.blit(kazukiShow, (330,135))
 
-                    profile_show = pygame.image.load("Kazuki\stand1_0.png")
+                    profile_show = pygame.image.load("Pic\Chara.png")
                     profile_show = pygame.transform.scale(profile_show, (300,300))
-                    self.gameDisplay.blit(profile_show, (500,281))
+                    self.gameDisplay.blit(profile_show, (630,135))
 
                     pygame.display.update()
                     self.p1_character = 4
 
                 #Lucifer----------
-                if ((mPos[0] >= 530 and mPos[0] <= 655 and mPos[1] >= 10
-                     and mPos[1] <= 150) and mPress == 1):
+                if ((mPos[0] >= 730 and mPos[0] <= 829 and mPos[1] >= 498
+                     and mPos[1] <= 598) and mPress == 1):
                     print("Lucifer")
-                    self.gameDisplay.fill(self.black)
-                    luciferShow = pygame.image.load("Lucifer\stand1_0.png")
+                    self.gameDisplay.fill(self.white)
+                    luciferShow = pygame.image.load("Pic\Chara.png")
                     luciferShow = pygame.transform.scale(luciferShow, (300,300))
-                    self.gameDisplay.blit(luciferShow, (248,281))
+                    self.gameDisplay.blit(luciferShow, (330,135))
 
-                    profile_show = pygame.image.load("Lucifer\stand1_0.png")
+                    profile_show = pygame.image.load("Pic\Chara.png")
                     profile_show = pygame.transform.scale(profile_show, (300,300))
-                    self.gameDisplay.blit(profile_show, (500,281))
+                    self.gameDisplay.blit(profile_show, (630,135))
 
                     pygame.display.update()
                     self.p1_character = 5
 
                 #Refaian----------
-                if ((mPos[0] >= 530 and mPos[0] <= 655 and mPos[1] >= 10
-                     and mPos[1] <= 150) and mPress == 1):
+                if ((mPos[0] >= 830 and mPos[0] <= 930 and mPos[1] >= 498
+                     and mPos[1] <= 598) and mPress == 1):
                     print("Refaian")
-                    self.gameDisplay.fill(self.black)
-                    refaianShow = pygame.image.load("Refaian\stand1_0.png")
+                    self.gameDisplay.fill(self.white)
+                    refaianShow = pygame.image.load("Pic\Chara.png")
                     refaianShow = pygame.transform.scale(refaianShow, (300,300))
-                    self.gameDisplay.blit(refaianShow, (248,281))
+                    self.gameDisplay.blit(refaianShow, (330,135))
 
-                    profile_show = pygame.image.load("Refaian\stand1_0.png")
+                    profile_show = pygame.image.load("Pic\Chara.png")
                     profile_show = pygame.transform.scale(profile_show, (300,300))
-                    self.gameDisplay.blit(profile_show, (500,281))
+                    self.gameDisplay.blit(profile_show, (630,135))
 
                     pygame.display.update()
                     self.p1_character = 6
 
                 #Select Button----------
-                if ((mPos[0] >= 700 and mPos[0] <= 795 and mPos[1] >= 530
-                     and mPos[1] <= 585) and mPress == 1 and self.p1_character != 0):
+                if ((mPos[0] >= 555 and mPos[0] <= 700 and mPos[1] >= 640
+                     and mPos[1] <= 681) and mPress == 1 and self.p1_character != 0):
                     p1_show = pygame.image.load("text\P1.png")
                     p1_show = pygame.transform.scale(p1_show, (30,30))
+                    
                     if self.p1_character == 1:
-                        if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):
-                            pass
-                        self.gameDisplay.blit(p1_show, (143,421))
-                        pygame.display.update()
+                        self.gameDisplay.blit(p1_show, (368,536))
                                          
                     elif self.p1_character == 2:
-                        if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):
-                            pass
-                        self.gameDisplay.blit(p1_show, (250,421))
-                        pygame.display.update()
+                        self.gameDisplay.blit(p1_show, (468,536))
                                          
                     elif self.p1_character == 3:
-                        if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):
-                            pass
-                        self.gameDisplay.blit(p1_show, (357,421))
-                        pygame.display.update()
+                        self.gameDisplay.blit(p1_show, (568,536))
                                          
                     elif self.p1_character == 4:
-                        if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):
-                            pass
-                        self.gameDisplay.blit(p1_show, (464,421))
-                        pygame.display.update()
+                        self.gameDisplay.blit(p1_show, (668,536))
                                          
                     elif self.p1_character == 5:
-                        if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):
-                            pass
-                        self.gameDisplay.blit(p1_show, (571,421))
-                        pygame.display.update()
+                        self.gameDisplay.blit(p1_show, (768,536))
+                        
                     elif self.p1_character == 6:
-                        if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):
-                            pass
-                        self.gameDisplay.blit(p1_show, (678,421))
-                        pygame.display.update()
+                        self.gameDisplay.blit(p1_show, (868,536))
+
+                    pygame.display.update()
 
                     print("You have selected a character!")
                     print(self.p1_character)
@@ -218,37 +201,38 @@ class Select_Character_Stage:
     def P2_character_select_menu(self):
         self.gameExit = False
 
-        while not self.gameExit:
+        while not self.gameExist:
+
             select_your_character = pygame.image.load("text\Select-Your-Character.png")#Show this text in the middle of the screen.
-            select_your_character = pygame.transform.scale(select_your_character, (300,300))
-            self.gameDisplay.blit(select_your_character, (390,55))
+            select_your_character = pygame.transform.scale(select_your_character, (800,50))
+            self.gameDisplay.blit(select_your_character, (235,30))
             
-            elentriana = pygame.image.load("Elentriana\stand1_0.png")#red hair girl
-            elentriana = pygame.transform.scale(elentriana, (150,150))
-            self.gameDisplay.blit(elentriana, (143,421))
+            elentriana = pygame.image.load("Pic\Chara.png")#red hair girl
+            elentriana = pygame.transform.scale(elentriana, (100,100))
+            self.gameDisplay.blit(elentriana, (330,498))
 
-            zalana = pygame.image.load("Zalana\stand1_0.png")#pink hair girl
-            zalana = pygame.transform.scale(zalana, (150,150))
-            self.gameDisplay.blit(zalana, (250,421))
+            zalana = pygame.image.load("Pic\Chara.png")#pink hair girl
+            zalana = pygame.transform.scale(zalana, (100,100))
+            self.gameDisplay.blit(zalana, (430,498))
 
-            shaca = pygame.image.load("Shaca\stand1_0.png")#yellow hair girl
-            shaca = pygame.transform.scale(shaca, (150,150))
-            self.gameDisplay.blit(shaca, (357,421))
+            shaca = pygame.image.load("Pic\Chara.png")#yellow hair girl
+            shaca = pygame.transform.scale(shaca, (100,100))
+            self.gameDisplay.blit(shaca, (530,498))
 
-            kazuki = pygame.image.load("Kazuki\stand1_0.png")#black hair man
-            kazuki = pygame.transform.scale(kazuki, (150,150))
-            self.gameDisplay.blit(kazuki, (464,421))
+            kazuki = pygame.image.load("Pic\Chara.png")#black hair man
+            kazuki = pygame.transform.scale(kazuki, (100,100))
+            self.gameDisplay.blit(kazuki, (630,498))
 
-            lucifer = pygame.image.load("Lucifer\stand1_0.png")#silver hair demon
-            lucifer = pygame.transform.scale(lucifer, (150,150))
-            self.gameDisplay.blit(lucifer, (571,421))
+            lucifer = pygame.image.load("Pic\Chara.png")#silver hair demon
+            lucifer = pygame.transform.scale(lucifer, (100,100))
+            self.gameDisplay.blit(lucifer, (730,498))
 
-            refaian = pygame.image.load("Refaian\stand1_0.png")#oriharukon knight with broken blade
-            refaian = pygame.transform.scale(refaian, (150,150))
-            self.gameDisplay.blit(refaian, (678,421))
+            refaian = pygame.image.load("Pic\Chara.png")#oriharukon knight with broken blade
+            refaian = pygame.transform.scale(refaian, (100,100))
+            self.gameDisplay.blit(refaian, (830,498))
 
-            select_button = pygame.image.load("text\Select.png")
-            self.gameDisplay.blit(select_button, (380,555))
+            select_button = pygame.image.load("text\Select.png")#confirm selecting character button
+            self.gameDisplay.blit(select_button, (555,640))
 
             pygame.display.update()
             
@@ -262,147 +246,127 @@ class Select_Character_Stage:
                     self.gameExit = True
 
                 #Elentriana----------    
-                if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):                
+                if ((mPos[0] >= 330 and mPos[0] <= 429 and mPos[1] >= 498
+                     and mPos[1] <= 598) and mPress == 1):                
                     print("Elentriana")
-                    self.gameDisplay.fill(self.black)
-                    elentrianaShow = pygame.image.load("Elentriana\stand1_0.png")#Real one shows character artwork.
+                    self.gameDisplay.fill(self.white)
+                    elentrianaShow = pygame.image.load("Pic\Chara.png")#Real one shows character artwork.
                     elentrianaShow = pygame.transform.scale(elentrianaShow, (300,300))
-                    self.gameDisplay.blit(elentrianaShow, (248,281))
+                    self.gameDisplay.blit(elentrianaShow, (330,135))
                     
-                    profile_show = pygame.image.load("Elentriana\stand1_0.png")#Real one is full profile of character show.
+                    profile_show = pygame.image.load("Pic\Chara.png")#Real one is full profile of character show.
                     profile_show = pygame.transform.scale(profile_show, (300,300))
-                    self.gameDisplay.blit(profile_show, (500,261))
+                    self.gameDisplay.blit(profile_show, (630,135))
                     
                     pygame.display.update()
-                    self.p2_character = 1
+                    self.p1_character = 1
 
                 #Zalana----------                        
-                if ((mPos[0] >= 200 and mPos[0] <= 300 and mPos[1] >= 25
-                     and mPos[1] <= 140) and mPress == 1):
+                if ((mPos[0] >= 430 and mPos[0] <= 529 and mPos[1] >= 498
+                     and mPos[1] <= 598) and mPress == 1):
                     print("Zalana")
-                    self.gameDisplay.fill(self.black)
-                    zalanaShow = pygame.image.load("Zalana\stand1_0.png")
+                    self.gameDisplay.fill(self.white)
+                    zalanaShow = pygame.image.load("Pic\Chara.png")
                     zalanaShow = pygame.transform.scale(zalanaShow, (300,300))
-                    self.gameDisplay.blit(zalanaShow, (248,281))
+                    self.gameDisplay.blit(zalanaShow, (330,135))
                     
-                    profile_show = pygame.image.load("Zalana\stand1_0.png")
+                    profile_show = pygame.image.load("Pic\Chara.png")
                     profile_show = pygame.transform.scale(profile_show, (300,300))
-                    self.gameDisplay.blit(profile_show, (500,281))
+                    self.gameDisplay.blit(profile_show, (630,135))
                     
                     pygame.display.update()
-                    self.p2_character = 2
+                    self.p1_character = 2
 
                 #Shaca----------    
-                if ((mPos[0] >= 385 and mPos[0] <= 455 and mPos[1] >= 35
-                     and mPos[1] <= 145) and mPress == 1):
+                if ((mPos[0] >= 530 and mPos[0] <= 629 and mPos[1] >= 498
+                     and mPos[1] <= 598) and mPress == 1):
                     print("Shaca")
-                    self.gameDisplay.fill(self.black)
-                    shacaShow = pygame.image.load("Shaca\stand1_0.png")
+                    self.gameDisplay.fill(self.white)
+                    shacaShow = pygame.image.load("Pic\Chara.png")
                     shacaShow = pygame.transform.scale(shacaShow, (300,300))
-                    self.gameDisplay.blit(shacaShow, (248,281))
+                    self.gameDisplay.blit(shacaShow, (330,135))
 
-                    profile_show = pygame.image.load("Shaca\stand1_0.png")
+                    profile_show = pygame.image.load("Pic\Chara.png")
                     profile_show = pygame.transform.scale(profile_show, (300,300))
-                    self.gameDisplay.blit(profile_show, (500,281))
+                    self.gameDisplay.blit(profile_show, (630,135))
                     
                     pygame.display.update()
-                    self.p2_character = 3
+                    self.p1_character = 3
 
                 #Kazuki----------    
-                if ((mPos[0] >= 530 and mPos[0] <= 655 and mPos[1] >= 10
-                     and mPos[1] <= 150) and mPress == 1):
+                if ((mPos[0] >= 630 and mPos[0] <= 729 and mPos[1] >= 498
+                     and mPos[1] <= 598) and mPress == 1):
                     print("Kazuki")
-                    self.gameDisplay.fill(self.black)
-                    kazukiShow = pygame.image.load("Kazuki\stand1_0.png")
+                    self.gameDisplay.fill(self.white)
+                    kazukiShow = pygame.image.load("Pic\Chara.png")
                     kazukiShow = pygame.transform.scale(kazukiShow, (300,300))
-                    self.gameDisplay.blit(kazukiShow, (248,281))
+                    self.gameDisplay.blit(kazukiShow, (330,135))
 
-                    profile_show = pygame.image.load("Kazuki\stand1_0.png")
+                    profile_show = pygame.image.load("Pic\Chara.png")
                     profile_show = pygame.transform.scale(profile_show, (300,300))
-                    self.gameDisplay.blit(profile_show, (500,281))
+                    self.gameDisplay.blit(profile_show, (630,135))
 
                     pygame.display.update()
-                    self.p2_character = 4
+                    self.p1_character = 4
 
                 #Lucifer----------
-                if ((mPos[0] >= 530 and mPos[0] <= 655 and mPos[1] >= 10
-                     and mPos[1] <= 150) and mPress == 1):
+                if ((mPos[0] >= 730 and mPos[0] <= 829 and mPos[1] >= 498
+                     and mPos[1] <= 598) and mPress == 1):
                     print("Lucifer")
-                    self.gameDisplay.fill(self.black)
-                    luciferShow = pygame.image.load("Lucifer\stand1_0.png")
+                    self.gameDisplay.fill(self.white)
+                    luciferShow = pygame.image.load("Pic\Chara.png")
                     luciferShow = pygame.transform.scale(luciferShow, (300,300))
-                    self.gameDisplay.blit(luciferShow, (248,281))
+                    self.gameDisplay.blit(luciferShow, (330,135))
 
-                    profile_show = pygame.image.load("Lucifer\stand1_0.png")
+                    profile_show = pygame.image.load("Pic\Chara.png")
                     profile_show = pygame.transform.scale(profile_show, (300,300))
-                    self.gameDisplay.blit(profile_show, (500,281))
+                    self.gameDisplay.blit(profile_show, (630,135))
 
                     pygame.display.update()
-                    self.p2_character = 5
+                    self.p1_character = 5
 
                 #Refaian----------
-                if ((mPos[0] >= 530 and mPos[0] <= 655 and mPos[1] >= 10
-                     and mPos[1] <= 150) and mPress == 1):
+                if ((mPos[0] >= 830 and mPos[0] <= 930 and mPos[1] >= 498
+                     and mPos[1] <= 598) and mPress == 1):
                     print("Refaian")
-                    self.gameDisplay.fill(self.black)
-                    refaianShow = pygame.image.load("Refaian\stand1_0.png")
+                    self.gameDisplay.fill(self.white)
+                    refaianShow = pygame.image.load("Pic\Chara.png")
                     refaianShow = pygame.transform.scale(refaianShow, (300,300))
-                    self.gameDisplay.blit(refaianShow, (248,281))
+                    self.gameDisplay.blit(refaianShow, (330,135))
 
-                    profile_show = pygame.image.load("Refaian\stand1_0.png")
+                    profile_show = pygame.image.load("Pic\Chara.png")
                     profile_show = pygame.transform.scale(profile_show, (300,300))
-                    self.gameDisplay.blit(profile_show, (500,281))
+                    self.gameDisplay.blit(profile_show, (630,135))
 
                     pygame.display.update()
-                    self.p2_character = 6
+                    self.p1_character = 6
 
                 #Select Button----------
-                if ((mPos[0] >= 700 and mPos[0] <= 795 and mPos[1] >= 530
-                     and mPos[1] <= 585) and mPress == 1 and self.p2_character != 0):
-                    p2_show = pygame.image.load("text\P2.png")
-                    p2_show = pygame.transform.scale(p2_show, (30,30))
+                if ((mPos[0] >= 555 and mPos[0] <= 700 and mPos[1] >= 640
+                     and mPos[1] <= 681) and mPress == 1 and self.p1_character != 0):
+                    p1_show = pygame.image.load("text\P1.png")
+                    p1_show = pygame.transform.scale(p1_show, (30,30))
+                    
                     if self.p1_character == 1:
-                        if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):
-                            pass
-                        self.gameDisplay.blit(p2_show, (143,421))
-                        pygame.display.update()
+                        self.gameDisplay.blit(p1_show, (368,536))
                                          
                     elif self.p1_character == 2:
-                        if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):
-                            pass
-                        self.gameDisplay.blit(p2_show, (250,421))
-                        pygame.display.update()
+                        self.gameDisplay.blit(p1_show, (468,536))
                                          
                     elif self.p1_character == 3:
-                        if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):
-                            pass
-                        self.gameDisplay.blit(p2_show, (357,421))
-                        pygame.display.update()
+                        self.gameDisplay.blit(p1_show, (568,536))
                                          
                     elif self.p1_character == 4:
-                        if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):
-                            pass
-                        self.gameDisplay.blit(p2_show, (464,421))
-                        pygame.display.update()
+                        self.gameDisplay.blit(p1_show, (668,536))
                                          
                     elif self.p1_character == 5:
-                        if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):
-                            pass
-                        self.gameDisplay.blit(p2_show, (571,421))
-                        pygame.display.update()
-                                         
+                        self.gameDisplay.blit(p1_show, (768,536))
+                        
                     elif self.p1_character == 6:
-                        if ((mPos[0] >= 30 and mPos[0] <= 131 and mPos[1] >= 42
-                     and mPos[1] <= 135) and mPress == 1):
-                            pass
-                        self.gameDisplay.blit(p2_show, (678,421))
-                        pygame.display.update()
+                        self.gameDisplay.blit(p1_show, (868,536))
+
+                    pygame.display.update()
+                    
                     print("You have selected a character!")
                     print(self.p2_character)
                     
