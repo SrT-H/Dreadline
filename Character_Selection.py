@@ -5,12 +5,12 @@ lightskyblue = (135, 206, 250)  # set light sky blue color
 
 display_width = 1280  # set display width
 display_height = 768  # set display height
-caption = 'Dreadline'  # set top bar caption
+caption = 'Character Selection'  # set top bar caption
 
 # init game
 pygame.init()
-# self.logo = pygame.image.load("logo32x32.png")
-# pygame.display.set_icon(logo)
+logo = pygame.image.load("Chara_select\Pic\dreadline_logo.png")
+pygame.display.set_icon(logo)
 pygame.display.set_caption(caption)
 screen = pygame.display.set_mode((display_width, display_height))
 screen.fill(black)
@@ -59,6 +59,7 @@ class Button:
     bg_image = ''
     bg_image_area = None
     image = None
+
     def draw(self):
         self.image = pygame.image.load(self.bg_image)
         self.image = pygame.transform.scale(self.image, (self.width, self.height))
@@ -152,7 +153,7 @@ class SelectCharacterPage:
         elif self.refaian.bg_image_area.collidepoint(x, y):
             print('click refaian')
             self.char_picked = 6
-        print('char pick : ',self.char_picked)
+        print('char pick : ', self.char_picked)
         self.select_char_image()
 
         if self.select_button.bg_image_area.collidepoint(x, y):
@@ -246,7 +247,7 @@ class SelectCharacterPage:
         print(str(self.player_selected_list))
 
 
-class PageController:
+class PageController2:
     def __init__(self):
         print('init page controller')
         self.select_char_page = SelectCharacterPage()
@@ -258,23 +259,25 @@ class PageController:
         self.select_char_page.mouse_click_event_handle(x, y)
 
 
-class Dreadline: # for test running
+class CharacterSelect: # for test running
     def __init__(self):
         print('init Dreadline')
         self.running = True
-        self.page_controller = PageController()
+        self.clock = pygame.time.Clock()
+        self.FPS = 30
+        self.page_controller2 = PageController2()
+        self.page_controller2.get_select_char_page()
 
-        self.page_controller.get_select_char_page()
-
-    def main(self):
+    def selection(self):
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     x, y = event.pos
-                    self.page_controller.get_select_char_page_mouse_click_action(x, y)
+                    self.page_controller2.get_select_char_page_mouse_click_action(x, y)
+        self.clock.tick(self.FPS)
 
 
-if __name__ == "__main__":
-    Dreadline().main()
+#if __name__ == "__main__":
+    #CharacterSelect().main()
