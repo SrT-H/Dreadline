@@ -11,6 +11,9 @@ In the past, Zalana is just a deputy cheif but since her beloved cheif has gone 
 
 HP: ???
 DP: ???
+Speed: 1
+*small number, attack faster (%2)
+**optional, may be we don't need Speed
 
 Passive Skills:	1. Heal: With her pure mind, Zalana prey to the god and borrow his power to cure herself and her colleagues. Every 4 turns, Zalana perform healing magic to restore herself and her allies for 50 HP. Zalana cannot attack this turn.
 		2. Shield of Protection: Zalana use her sacred shield to guard herself, reduce damage taking from enemies by 20 percent.

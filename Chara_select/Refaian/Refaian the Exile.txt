@@ -11,6 +11,9 @@ Even though, he sworn to himself that he will show the dark side of Karuda to th
 
 HP: ???
 DP: ???
+Speed: 1
+*small number, attack faster (%2)
+**optional, may be we don't need Speed
 
 Passive Skills:	1. Intervention: Refaian use his divine shield ability to cover himself and his allies in holy light. Every 4 turns, Refaian and his allies take no damage from enemies for 1 turn.
 		2. Oriharukon Armor: Refaian gear are made of orichalcum, the legendary metal. Replenish his DP by 20* every 2 turns.

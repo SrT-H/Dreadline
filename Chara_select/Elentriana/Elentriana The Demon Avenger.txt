@@ -6,6 +6,9 @@ Story: Elentriana was born in a small village deep in the woods outside the city
 
 HP: ???
 DP: ???
+Speed: 0.5
+*small number faster to attack
+**optional, may be we don't need Speed
 
 Passive Skills:	1. Flame Blade: By Elentriana anger, she set her blade on fire which burn the enemies and herself. Elentriana deal 10 percent more damage and receive more 10 percent damage from the enemies.
 		2. Demon Blood Thirster: With the power of Khazakar-----The Demon Devourer Snake Blade and her anger of revenge, Elentriana deal 20 percent more damage against [Demon Type].

@@ -10,6 +10,9 @@ Now he planned to dominate the world to show the god that his revenge is going t
 
 HP: ???
 DP: ???
+Speed: 0.7
+*small number, attack faster (%2)
+**optional, may be we don't need Speed
 
 Passive Skills: 	1. Curse [Suffer]: Every 3 turns, Lucifer attack will curse an enemy, reduce his/her attack by 20 percent for 2 turns.
 		2. Power of black magic: Deal 20 percent more damage when Lucifer attack an enemy that is curse.

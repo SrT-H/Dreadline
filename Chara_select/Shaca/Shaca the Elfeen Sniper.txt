@@ -15,6 +15,9 @@ Since that day, Shaca, in the name of tribe's cheif, she declared war against th
 
 HP:???
 DP:???
+Speed: 0.3
+*small number, attack faster (%2)
+**optional, may be we don't need Speed
 
 Passive Skills:	1. Piercing Shot: Every 3 turns, Shaca borrow the power of light spirit. Her arrow pierce surpass the enemies from front to back, dealing damage to all of the enemies but reduce Attack Point by 30 percent. Demon Type take more damage by 20 percent from this skill.
 		2. Trinity Arrow: Every 2 turns, with her ability, Shaca rapidly fire her arrow 3 times in a row. An enemy grant half damage from Shaca AP but 3 times.
