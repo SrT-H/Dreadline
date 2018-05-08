@@ -80,7 +80,7 @@ class MainMenu:
 
     def draw(self):
         pygame.display.update()
-    
+
     def start_game(self):
         screen.fill(black)
         CharacterSelect().selection()
