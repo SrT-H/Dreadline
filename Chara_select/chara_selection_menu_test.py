@@ -28,24 +28,28 @@ class Select_Character_Stage:
 
     def P1_character_select_menu(self):
         self.gameExit = False
-        el_check = True
+        Elentriana = True
+        Zalana = True
+        Shaca = True
         while not self.gameExit:
             select_your_character = pygame.image.load("text\Select-Your-Character.png")#Show this text in the middle of the screen.
             select_your_character = pygame.transform.scale(select_your_character, (800,50))
             self.gameDisplay.blit(select_your_character, (235,30))
 
-            if el_check:
+            if Elentriana:
                 elentriana = pygame.image.load("Pic\Chara.png")#red hair girl
                 elentriana = pygame.transform.scale(elentriana, (100,100))
                 self.gameDisplay.blit(elentriana, (330,498))
 
-            zalana = pygame.image.load("Pic\Chara.png")#pink hair girl
-            zalana = pygame.transform.scale(zalana, (100,100))
-            self.gameDisplay.blit(zalana, (430,498))
+            if Zalana:
+                zalana = pygame.image.load("Pic\Chara.png")#pink hair girl
+                zalana = pygame.transform.scale(zalana, (100,100))
+                self.gameDisplay.blit(zalana, (430,498))
 
-            shaca = pygame.image.load("Pic\Chara.png")#yellow hair girl
-            shaca = pygame.transform.scale(shaca, (100,100))
-            self.gameDisplay.blit(shaca, (530,498))
+            if Shaca:
+                shaca = pygame.image.load("Pic\Chara.png")#yellow hair girl
+                shaca = pygame.transform.scale(shaca, (100,100))
+                self.gameDisplay.blit(shaca, (530,498))
 
             kazuki = pygame.image.load("Pic\Chara.png")#black hair man
             kazuki = pygame.transform.scale(kazuki, (100,100))
@@ -177,13 +181,15 @@ class Select_Character_Stage:
                     
                     if self.p1_character == 1:
                         self.gameDisplay.blit(p1_show, (368,536))
-                        el_check = False
+                        Elentriana = False
                                          
                     elif self.p1_character == 2:
                         self.gameDisplay.blit(p1_show, (468,536))
+                        Zalana = False
                                          
                     elif self.p1_character == 3:
                         self.gameDisplay.blit(p1_show, (568,536))
+                        Shaca = False
                                          
                     elif self.p1_character == 4:
                         self.gameDisplay.blit(p1_show, (668,536))
@@ -381,4 +387,4 @@ class Select_Character_Stage:
     def main(self):
         Select_Character_Stage().P1_character_select_menu()
             
-Select_Character_Stage().main()#can run but show only black screen and freeze, can't do anything even close.
+Select_Character_Stage().main()

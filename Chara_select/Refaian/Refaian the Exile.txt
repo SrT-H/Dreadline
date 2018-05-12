@@ -9,10 +9,11 @@ Refaian left his knight unit behind and began his forever journey.
 Although his thoughts are filled with aanger, but his justice mind still kept him help and protect those in need.
 Even though, he sworn to himself that he will show the dark side of Karuda to the public and will destroy the Church in one day.
 
-HP: ???
-DP: ???
+HP: 100
+DP: 100
+AP: 7
 
 Passive Skills:	1. Intervention: Refaian use his divine shield ability to cover himself and his allies in holy light. Every 4 turns, Refaian and his allies take no damage from enemies for 1 turn.
-		2. Oriharukon Armor: Refaian gear are made of orichalcum, the legendary metal. Replenish his DP by 20* every 2 turns.
+		2. Oriharukon Armor: Refaian gear are made of orichalcum, the legendary metal. Replenish his DP by 2* every 2 turns.
 
 *may change later

@@ -13,8 +13,12 @@ But sadly, Shaca parents are passed away by the dragon's flame.
 Even the elves have the power of the spirits to cure wounds, but it cannot bring the dead back to life.
 Since that day, Shaca, in the name of tribe's cheif, she declared war against the demonkind.
 
-HP:???
-DP:???
+HP:75
+DP:35
+AP:20
+
 
 Passive Skills:	1. Piercing Shot: Every 3 turns, Shaca borrow the power of light spirit. Her arrow pierce surpass the enemies from front to back, dealing damage to all of the enemies but reduce Attack Point by 30 percent. Demon Type take more damage by 20 percent from this skill.
 		2. Trinity Arrow: Every 2 turns, with her ability, Shaca rapidly fire her arrow 3 times in a row. An enemy grant half damage from Shaca AP but 3 times.
+
+		Alternative skill(optional): Visceral Rend: Every attack Shaca perform, her arrows will pierce towards her enemy visceral and hold all of them in the enemy body. Once Shaca's team reaches 5 turns, she will with draw all of the arrows inside the enemy and dealing visceral damage which DP cannot defend, 10 damage per one arrow.
