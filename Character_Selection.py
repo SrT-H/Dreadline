@@ -1,4 +1,6 @@
 import pygame  # import external library pygame
+import Test
+#from Rock_Paper_Scissors_mini_game import RockPaperScissors
 
 black = (0, 0, 0)  # set black color
 lightskyblue = (135, 206, 250)  # set light sky blue color
@@ -98,6 +100,7 @@ class CharacterButton(Button):
         screen.blit(p2_image, (self.player_image_pos_x, self.player_image_pos_y))
         pygame.display.update()
 
+
 class SelectButton(Button):
     def __init__(self, pos_x, pos_y, char_name):
         self.pos_x = pos_x
@@ -118,7 +121,8 @@ class SelectCharacterPage:
 
         self.player_selected_list = [0, 0, 0, 0, 0, 0]
         self.char_picked = 0
-        self.player_number = 1
+        self.player_num = Test.RockPaperScissors()
+        self.player_number = self.player_num.rules()
 
         self.select_ur_char = SelectYourCharImage(235, 30, 'Select-Your-Character')
         self.elentriana = CharacterButton(330, 498, 'Chara')
@@ -166,8 +170,6 @@ class SelectCharacterPage:
         pos_char_y = 135
         pos_stat_x = 630
         pos_stat_y = 135
-        char_image = 'Chara'
-        stat_image = 'Chara'
 
         if self.char_picked == 1:
             print('show elentriana profile!')
@@ -194,8 +196,8 @@ class SelectCharacterPage:
             char_image = 'Chara'
             stat_image = 'Chara'
 
-        self.char_image = CharacterAndStatImage(pos_char_x, pos_char_y, char_image)
-        self.stat_image = CharacterAndStatImage(pos_stat_x, pos_stat_y, stat_image)
+        self.char_image_show = CharacterAndStatImage(pos_char_x, pos_char_y, char_image)
+        self.stat_image_show = CharacterAndStatImage(pos_stat_x, pos_stat_y, stat_image)
         self.draw()
 
     def select_select_button(self):
@@ -242,8 +244,8 @@ class SelectCharacterPage:
             if self.player_number == 1:
                 self.player_number = 2
             elif self.player_number == 2:
-                self.player_number = 1  
-        print('check_char_selected : ',check_char_selected())
+                self.player_number = 1
+        print('check_char_selected : ', check_char_selected())
         print(str(self.player_selected_list))
 
 
@@ -279,5 +281,5 @@ class CharacterSelect: # for test running
         self.clock.tick(self.FPS)
 
 
-#if __name__ == "__main__":
-    #CharacterSelect().main()
+if __name__ == "__main__":
+    CharacterSelect().selection()

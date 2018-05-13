@@ -18,13 +18,23 @@ screen.fill(white)
 t = ["Rock", "Paper", "Scissors"]
 
 
-class RockPaperScissorsImage(Image):
+class RPSShowImage(Image):
     def __init__(self, pos_x, pos_y, image_name):
         self.pos_x = pos_x
         self.pos_y = pos_y
         self.width = 300
         self.height = 300
-        self.bg_image = 'Picture\RPS\%s.jpg' % image_name
+        self.bg_image = 'Picture\RPS\%s.png' % image_name
+        self.draw()
+
+
+class RockPaperScissorsImage(Image):
+    def __init__(self, pos_x, pos_y, image_name):
+        self.pos_x = pos_x
+        self.pos_y = pos_y
+        self.width = 250
+        self.height = 250
+        self.bg_image = 'Picture\RPS\%s.png' % image_name
         self.draw()
 
 
@@ -32,9 +42,9 @@ class RockPaperScissorsButton(Button):
     def __init__(self, pos_x, pos_y, image_name):
         self.pos_x = pos_x
         self.pos_y = pos_y
-        self.width = 300
+        self.width = 250
         self.height = 300
-        self.bg_image = 'Picture\RPS\%s.jpg' % image_name
+        self.bg_image = 'Picture\RPS\%s.png' % image_name
         self.draw()
 
 
@@ -44,21 +54,44 @@ class RockPaperScissors:
         self.clock = pygame.time.Clock()
         self.FPS = 30
 
-        self.rock = RockPaperScissorsButton(96, 345, 'rock')
-        self.paper = RockPaperScissorsButton(510, 345, 'paper')
-        self.scissors = RockPaperScissorsButton(930, 345, 'scissors')
+        self.rock = RockPaperScissorsButton(96, 345, 'rock alternate')
+        self.paper = RockPaperScissorsButton(510, 345, 'paper alternate')
+        self.scissors = RockPaperScissorsButton(930, 345, 'scissors alternate')
 
     def draw(self):
         pygame.display.update()
 
-    def mouse_click_event_handle(self, x, y):
-        print('mouse click down', x, y)
-        if self.rock.bg_image_area.collidepoint(x, y):
-            print('click rock')
-        elif self.paper.bg_image_area.collidepoint(x, y):
-            print('click paper')
-        elif self.scissors.bg_image_area.collidepoint(x, y):
-            print('click scissors')
+    def keyboard_press_event_handle(self, keyboard):
+        print('key press')
+        if keyboard == pygame.K_KP1:
+            print('press rock')
+            self.RPS_picked = 1
+        elif keyboard == pygame.K_KP2:
+            print('press paper')
+            self.RPS_picked = 2
+        elif keyboard == pygame.K_KP3:
+            print('press scissors')
+            self.RPS_picked = 3
+        print('RPS pick: ', self.RPS_picked)
+        self.selected_RPS_image()
+
+    def selected_RPS_image(self):
+        pos_RPS_x = 300
+        pos_RPS_y = 135
+
+        if self.RPS_picked == 1:
+            print('show rock pic!')
+            RPS_image = 'rock alternate'
+        elif self.RPS_picked == 2:
+            print('show paper pic!')
+            RPS_image = 'paper alternate'
+        elif self.RPS_picked == 3:
+            print('show scissors pic!')
+            RPS_image = 'scissors alternate'
+
+        self.RPS_Picked_Image = RPSShowImage(pos_RPS_x, pos_RPS_y, RPS_image)
+        self.draw()
+
 
 
 class PageController:
@@ -69,8 +102,8 @@ class PageController:
     def get_rock_paper_scissors(self):
         self.rock_paper_scissors.draw()
 
-    def get_rock_paper_scissors_mouse_click_action(self, x, y):
-        self.rock_paper_scissors.mouse_click_event_handle(x, y)
+    def get_rock_paper_scissors_keyboard_press_action(self, keyboard):
+        self.rock_paper_scissors.keyboard_press_event_handle(keyboard)
 
 
 class MiniGame:
@@ -87,9 +120,9 @@ class MiniGame:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    x, y = event.pos
-                    self.page_controller.get_rock_paper_scissors_mouse_click_action(x, y)
+                if event.type == pygame.KEYDOWN:
+                    keyboard = event.key
+                    self.page_controller.get_rock_paper_scissors_keyboard_press_action(keyboard)
         self.clock.tick(self.FPS)
 
 

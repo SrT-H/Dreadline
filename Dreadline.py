@@ -1,5 +1,6 @@
 import pygame
 from Character_Selection import *
+from Test import *
 
 
 pygame.init()
@@ -37,25 +38,7 @@ class DreadlineImage(Image):
         self.width = 800
         self.height = 50
         self.bg_image = 'Picture\Text\%s.png' % image_name
-
         self.draw()
-
-
-class Button:
-    pos_x = 0
-    pos_y = 0
-    width = 0
-    height = 0
-    bg_image = ''
-    bg_image_area = None
-    image = None
-
-    def draw(self):
-        self.image = pygame.image.load(self.bg_image)
-        self.image = pygame.transform.scale(self.image, (self.width, self.height))
-        screen.blit(self.image, (self.pos_x, self.pos_y))
-
-        self.bg_image_area = self.image.get_rect(topleft=(self.pos_x, self.pos_y))
 
 
 class StartGuideExitButton(Button):
@@ -73,6 +56,7 @@ class MainMenu:
         screen.fill(black)
         self.clock = pygame.time.Clock()
         self.FPS = 30
+
         self.dreadline = DreadlineImage(310, 105, 'DREADLINE')
         self.start = StartGuideExitButton(480, 350, 'START')
         self.guide = StartGuideExitButton(480, 450, 'GUIDE')
@@ -80,10 +64,10 @@ class MainMenu:
 
     def draw(self):
         pygame.display.update()
-
+    
     def start_game(self):
         screen.fill(black)
-        CharacterSelect().selection()
+        MiniGame().rps_game()
 
     def mouse_click_event_handle(self, x, y):
         print('mouse click down', x, y)
