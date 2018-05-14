@@ -9,6 +9,7 @@ class player1(pygame.sprite.Sprite):
     def __init__(self, location, x, y):
         self.x = x
         self.y = y
+        self.hp = 0
         self.ani_speed_init = 10
         self.ani_speed = self.ani_speed_init
         self.ani = glob.glob(location)
@@ -38,9 +39,17 @@ class player1(pygame.sprite.Sprite):
     #health bar
     def full_health_bar(self, in_hp, x, y):
         pygame.font.init()
+        self.hp = in_hp
         myfont = pygame.font.SysFont('Comic Sans MS', 20)
         text = myfont.render('/'+str(in_hp), True, (0, 225, 0))
         gameDisplay.blit(text, (x, y))
+
+    def health(self, in_hp, x, y):
+        pygame.font.init()
+        myfont = pygame.font.SysFont('Comic Sans MS', 20)
+        text = myfont.render(str(in_hp), True, (0, 225, 0))
+        gameDisplay.blit(text, (x, y))
+
 
 #----- PLAYER 2 -----
 class player2(pygame.sprite.Sprite):
@@ -80,6 +89,11 @@ class player2(pygame.sprite.Sprite):
         text = myfont.render('/' + str(in_hp), True, (0, 225, 0))
         gameDisplay.blit(text, (x, y))
 
+    def health(self, in_hp, x, y):
+        pygame.font.init()
+        myfont = pygame.font.SysFont('Comic Sans MS', 20)
+        text = myfont.render(str(in_hp), True, (0, 225, 0))
+        gameDisplay.blit(text, (x, y))
 
 ''' ------------------------- '''
 #1-1
@@ -101,6 +115,11 @@ p2_2_location_atk = "Picture\\Character\\Male_2\\default\\0\\stabO1_R (*).png"
 #2-3
 p2_3_location = "Picture\\Character\\Male_3\\default\\0\\stand1_0.png"
 p2_3_location_atk = "Picture\\Character\\Male_3\\default\\0\\stabO1_R (*).png"
+
+
+#------ GAME OVER -----
+def gamover():
+    ''' play again (y/n) '''
 
 #---------- MAIN ----------
 def main():
@@ -134,12 +153,18 @@ def run_game():
     while not gameExit:
 
         player_1_1.full_health_bar(100, 200, 550)
+        player_1_1.health(100, 165, 550)
         player_1_2.full_health_bar(80, 200, 600)
+        player_1_2.health(80, 175, 600)
         player_1_3.full_health_bar(50, 200, 650)
+        player_1_3.health(50, 175, 650)
 
         player_2_1.full_health_bar(120, 1150, 550)
+        player_2_1.health(120, 1115, 550)
         player_2_2.full_health_bar(50, 1150, 600)
+        player_2_2.health(50, 1125, 600)
         player_2_3.full_health_bar(200, 1150, 650)
+        player_2_3.health(200, 1115, 650)
 
         for event in pygame.event.get():
             #print("EVENT:  ",event)
