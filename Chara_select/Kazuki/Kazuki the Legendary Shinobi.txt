@@ -10,8 +10,8 @@ This book had changed Kazuki vision of this world which he always sees filthy to
 But things are not the same as Kazuki thoughts. Even he lives as a normal student but still, he always involves in the path that soaked by the red color of the blood.
 
 HP: 60
-DP: 35
-AP: 25
+DP: 75
+AP: 35
 
 
 Passive Skills:	1. Kage no Sashi: Every 3 turns, Kazuki can perform his ninjutsu to become shadow, lurks around and stabs an enemy. This attack will pierce an enemy DP dealing direct damage to HP.
