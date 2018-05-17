@@ -1,6 +1,5 @@
 import pygame
 from Character_Selection import *
-from Test import *
 
 
 pygame.init()
@@ -8,7 +7,7 @@ pygame.init()
 black = (0, 0, 0)
 
 display_width = 1280
-display_height = 768
+display_height = 720
 caption = 'D R E A D L I N E '
 
 logo = pygame.image.load("Chara_select\Pic\dreadline_logo.png")
@@ -27,7 +26,6 @@ class Image:
 
     def draw(self):
         char_image = pygame.image.load(self.bg_image)
-        #char_image = pygame.transform.scale(char_image, (self.width, self.height))
         screen.blit(char_image, (self.pos_x, self.pos_y))
 
 
@@ -35,8 +33,6 @@ class DreadlineImage(Image):
     def __init__(self, pos_x, pos_y, image_name):
         self.pos_x = pos_x
         self.pos_y = pos_y
-        self.width = 800
-        self.height = 50
         self.bg_image = 'Picture\Text\%s.png' % image_name
         self.draw()
 
@@ -67,7 +63,7 @@ class MainMenu:
     
     def start_game(self):
         screen.fill(black)
-        MiniGame().rps_game()
+        CharacterSelect().selection()
 
     def mouse_click_event_handle(self, x, y):
         print('mouse click down', x, y)
