@@ -1,5 +1,6 @@
 import pygame
 from Character_Selection import *
+from Guide import *
 
 
 pygame.init()
@@ -50,7 +51,6 @@ class StartGuideExitButton(Button):
 class MainMenu:
     def __init__(self):
         screen.fill(black)
-        self.clock = pygame.time.Clock()
         self.FPS = 30
 
         self.dreadline = DreadlineImage(310, 105, 'DREADLINE')
@@ -72,9 +72,9 @@ class MainMenu:
             MainMenu().start_game()
         elif self.guide.bg_image_area.collidepoint(x, y):
             print('click guide button!')
+            UserGuide().main()
         elif self.exit.bg_image_area.collidepoint(x, y):
             print('click exit button')
-            self.clock.tick(self.FPS)
             pygame.quit()
             quit()
 

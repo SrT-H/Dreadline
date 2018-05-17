@@ -97,36 +97,37 @@ class RockPaperScissors:
         # self.selected_RPS_image()
 
     def rules(self):
+        if self.P1_RPS_picked == 'Rock' and self.P2_RPS_picked == 'Rock':
+            print('Draw! Try again!')
+            self.player_number = 0
+        elif self.P1_RPS_picked == 'Paper' and self.P2_RPS_picked == 'Paper':
+            print('Draw! Try again!')
+            self.player_number = 0
+        elif self.P1_RPS_picked == 'Scissors' and self.P2_RPS_picked == 'Scissors':
+            print('Draw! Try again!')
+            self.player_number = 0
+        elif self.P1_RPS_picked == 'Rock' and self.P2_RPS_picked == 'Scissors':
+            print('P1 win! P1 can select a character first!')
+            self.player_number = 1
+        elif self.P1_RPS_picked == 'Rock' and self.P2_RPS_picked == 'Paper':
+            print('P2 win! P2 can select a character first!')
+            self.player_number = 2
+        elif self.P1_RPS_picked == 'Paper' and self.P2_RPS_picked == 'Scissors':
+            print('P2 win! P2 can select a character first!')
+            self.player_number = 2
+        elif self.P1_RPS_picked == 'Paper' and self.P2_RPS_picked == 'Rock':
+            print('P1 win! P1 can select a character first!')
+            self.player_number = 1
+        elif self.P1_RPS_picked == 'Scissors' and self.P2_RPS_picked == 'Rock':
+            print('P2 win! P2 can select a character first!')
+            self.player_number = 2
+        elif self.P1_RPS_picked == 'Scissors' and self.P2_RPS_picked == 'Paper':
+            print('P1 win! P1 can select a character first!')
+            self.player_number = 1
+        # return self.player_number
         if self.player_number != 0 and self.player_number == 1 or self.player_number == 2:
             RockPaperScissors().start_character_selection()
-            if self.P1_RPS_picked == 'Rock' and self.P2_RPS_picked == 'Rock':
-                print('Draw! Try again!')
-                self.player_number = 0
-            elif self.P1_RPS_picked == 'Paper' and self.P2_RPS_picked == 'Paper':
-                print('Draw! Try again!')
-                self.player_number = 0
-            elif self.P1_RPS_picked == 'Scissors' and self.P2_RPS_picked == 'Scissors':
-                print('Draw! Try again!')
-                self.player_number = 0
-            elif self.P1_RPS_picked == 'Rock' and self.P2_RPS_picked == 'Scissors':
-                print('P1 win! P1 can select a character first!')
-                self.player_number = 1
-            elif self.P1_RPS_picked == 'Rock' and self.P2_RPS_picked == 'Paper':
-                print('P2 win! P2 can select a character first!')
-                self.player_number = 2
-            elif self.P1_RPS_picked == 'Paper' and self.P2_RPS_picked == 'Scissors':
-                print('P2 win! P2 can select a character first!')
-                self.player_number = 2
-            elif self.P1_RPS_picked == 'Paper' and self.P2_RPS_picked == 'Rock':
-                print('P1 win! P1 can select a character first!')
-                self.player_number = 1
-            elif self.P1_RPS_picked == 'Scissors' and self.P2_RPS_picked == 'Rock':
-                print('P2 win! P2 can select a character first!')
-                self.player_number = 2
-            elif self.P1_RPS_picked == 'Scissors' and self.P2_RPS_picked == 'Paper':
-                print('P1 win! P1 can select a character first!')
-                self.player_number = 1
-            return self.player_number
+
 
 
     # def selected_RPS_image(self):
