@@ -1,0 +1,12 @@
+Elentriana the Demon Avenger
+Age: 18
+Height: 165 cm
+Weight: 45 kg
+Story: Elentriana is the fearsome name to all types of demon.It has been said that if any demon face the name's owner, it cannot even comeback in one piece. Elentriana was born in a small village deep in the woods outside the city in the land of Dreadline. When she was just a little child, the village was attacked by the horde of demons. All of villagers are gone included the girl parents. Only Elentriana managed to survive because of her parents hid her in the underground shelter to prevent her from the evils. From that day, Elentriana decided to fled the burn out village with malice to the demons and a weapon that is the symbol of the village-----The Snake Blade. Elentriana has grown up training her skills by her own self, several years have passed, she became a famous youngest devil hunter who seek and anihilate the demonkind with wrathful mind. People esteem her by giving her a unique designation-----"Demon Avenger".
+
+HP: 80
+DP: 50
+AP: 15
+
+Passive Skills:	1. Blade of Chaos: With the power of Crissagrim----The Chaos Snake Blade, which were imbued with fire, which allowed it to ignite with every attack that the user performed. Every attack Elentriana performs, will deal more 30 percent damage.
+		2. Demon Blood Thirster:  By her anger of revenge, Elentriana deal 60 percent more damage against [Demon Type] and will restore her HP 5 points.

@@ -1,4 +1,5 @@
 import pygame  # import external library pygame
+import battle
 
 black = (0, 0, 0)  # set black color
 lightskyblue = (135, 206, 250)  # set light sky blue color
@@ -260,8 +261,34 @@ class SelectCharacterPage:
         print('check_char_selected : ', check_char_selected())
         print(str(self.player_selected_list))
 
-        '''if self.player_selected_list[0] != 0 and self.player_selected_list[1] != 0 and self.player_selected_list[2] != 0 and self.player_selected_list[3] != 0 and self.player_selected_list[4] != 0 and self.player_selected_list[5] != 0:
-            Battle().main()'''
+        if self.player_selected_list[0] != 0 and self.player_selected_list[1] != 0 and self.player_selected_list[2] != 0 and self.player_selected_list[3] != 0 and self.player_selected_list[4] != 0 and self.player_selected_list[5] != 0:
+            lst = self.player_selected_list
+            p1 = []
+            p2 = []
+            temp = []
+            for i in range(len(lst)):
+                if self.player_selected_list[i] == 1:
+                    p1.append(i+1)
+                elif self.player_selected_list[i] == 2:
+                    p2.append(i+1)
+
+            for i in p1:
+                temp.append(i)
+            for i in p2:
+                temp.append(i)
+
+            print(p1)
+            print(p2)
+            print(temp)
+
+            battle.set_character(temp)
+            battle.run_game()
+
+
+
+
+        
+
 
 
 class PageController2:
