@@ -560,8 +560,93 @@ def check_p2():
             count += 1
     return count
 
-'''
+#---- RUN GAME -----
+def run_game():
+    gameExit = False
+    gameOver_check = False
+    gameOver_check_2 = 0
+    global turn
+    turn = 0
+    select = []
+    global p1_count, p2_count
+    p1_count, p2_count = 0, 0
+
+    clock = pygame.time.Clock()
+    pygame.display.update()
+
+    while not gameExit:
+        all_render()
+        # show_turn(turn)
+        if check_p1() == 3:
+            gameOver_check = True
+            gameOver_check_2 = 2
+
+        elif check_p2() == 3:
+            gameOver_check = True
+            gameOver_check_2 = 1
+
+        while gameOver_check == True:
+            if gameOver_check_2 == 1:
+                gameOver(1)
+            else:
+                gameOver(2)
+
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_y:
+                        gameExit = True
+                        gameOver_check = False
+
+        for event in pygame.event.get():
+            # print("EVENT:  ",event)
+            if event.type == pygame.QUIT:
+                gameExit = True
+            elif event.type == pygame.KEYUP and event.key == pygame.K_1:
+                if turn % 2 == 0:
+                    if player_1_1.die == False:
+                        select.append(1)
+                    else:
+                        dead(player_1_1)
+                elif turn % 2 == 1:
+                    if player_2_1.die == False:
+                        select.append(1)
+            elif event.type == pygame.KEYUP and event.key == pygame.K_2:
+                if turn % 2 == 0:
+                    if player_1_2.die == False:
+                        select.append(2)
+                elif turn % 2 == 1:
+                    if player_2_2.die == False:
+                        select.append(2)
+            elif event.type == pygame.KEYUP and event.key == pygame.K_3:
+                if turn % 2 == 0:
+                    if player_1_3.die == False:
+                        select.append(3)
+                elif turn % 2 == 1:
+                    if player_2_3.die == False:
+                        select.append(3)
+
+        if len(select) == 2:
+            if turn % 2 == 0:
+                print('PLAYER 1', 'TURN:', turn)
+                print(select)
+                attack_animation(select[0])
+                dmg_cal(select[0], select[1], 1)
+            else:
+                print('PLAYER 2', 'TURN:', turn)
+                print(select)
+                attack_animation(select[0] + 3)
+                dmg_cal(select[0], select[1], 2)
+            select = []
+            turn += 1
+        all_render()
+        pygame.display.update()
+        clock.tick(60)
+
+    pygame.quit()
+    quit()
+
 #--------- TEST -----------
+'''
 def TEST():
 
     set_character(5, 2, 6, 3, 1, 4)
