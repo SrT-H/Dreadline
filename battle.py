@@ -367,40 +367,40 @@ def show_turn(count):
     pygame.display.update()
 
 #------ SET CHARACTER ------
-def set_character(n1, n2, n3, n4, n5, n6):
+def set_character(lst):
     global player_1_1, player_1_2, player_1_3, \
             player_2_1, player_2_2, player_2_3
     # 1 - 1
     player_1_1 = player1(200, 100)
-    player_1_1.set_location(character_location(n1), character_location_atk(n1))
-    player_1_1.set_status(get_status(n1))
-    player_1_1.temp = n1
+    player_1_1.set_location(character_location(lst[0]), character_location_atk(lst[0]))
+    player_1_1.set_status(get_status(lst[0]))
+    player_1_1.temp = lst[0]
     # 1 - 2
     player_1_2 = player1(300, 250)
-    player_1_2.set_location(character_location(n2), character_location_atk(n2))
-    player_1_2.set_status(get_status(n2))
-    player_1_2.temp = n2
+    player_1_2.set_location(character_location(lst[1]), character_location_atk(lst[1]))
+    player_1_2.set_status(get_status(lst[1]))
+    player_1_2.temp = lst[1]
     # 1 - 3
     player_1_3 = player1(200, 400)
-    player_1_3.set_location(character_location(n3), character_location_atk(n3))
-    player_1_3.set_status(get_status(n3))
-    player_1_3.temp = n3
+    player_1_3.set_location(character_location(lst[2]), character_location_atk(lst[2]))
+    player_1_3.set_status(get_status(lst[2]))
+    player_1_3.temp = lst[2]
 
     # 2 - 1
     player_2_1 = player2(980, 100)
-    player_2_1.set_location(character_location(n4), character_location_atk(n4))
-    player_2_1.set_status(get_status(n4))
-    player_2_1.temp = n4
+    player_2_1.set_location(character_location(lst[3]), character_location_atk(lst[3]))
+    player_2_1.set_status(get_status(lst[3]))
+    player_2_1.temp = lst[3]
     # 2 - 2
     player_2_2 = player2(880, 250)
-    player_2_2.set_location(character_location(n5), character_location_atk(n5))
-    player_2_2.set_status(get_status(n5))
-    player_2_2.temp = n5
+    player_2_2.set_location(character_location(lst[4]), character_location_atk(lst[4]))
+    player_2_2.set_status(get_status(lst[4]))
+    player_2_2.temp = lst[4]
     # 2 - 3
     player_2_3 = player2(980, 400)
-    player_2_3.set_location(character_location(n6), character_location_atk(n6))
-    player_2_3.set_status(get_status(n6))
-    player_2_3.temp = n6
+    player_2_3.set_location(character_location(lst[5]), character_location_atk(lst[5]))
+    player_2_3.set_status(get_status(lst[5]))
+    player_2_3.temp = lst[5]
 
 #------ ALL RENDER ------
 def all_render():
