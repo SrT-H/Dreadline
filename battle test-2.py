@@ -1,4 +1,4 @@
-import pygame, sys, glob, time, os
+import pygame, sys, glob, time, os, random
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 gameDisplay = pygame.display.set_mode((1280, 720))
@@ -32,21 +32,15 @@ class player1(pygame.sprite.Sprite):
         self.ani.sort()            
         self.ani_pos = 0
         self.ani_max = len(self.ani) - 1
-        #self.img = pygame.image.load(self.ani[0])
-        #self.img = pygame.transform.scale(self.img, (100, 100))
-        #self.img = pygame.transform.flip(self.img, 100, 0)
-        #self.rect = self.img.get_rect()
-        #self.update(0)
+        self.die = False
 
     #update
-    def update(self, pos):
+    def updated(self, pos):
         if self.ani_speed == 0:
             self.img = pygame.image.load(self.ani[self.ani_pos])
-            #self.img = pygame.transform.scale(self.img, (100, 100))
-            self.rect = self.img.get_rect()
-            p1_char_check = self.img
+            self.img = pygame.transform.flip(self.img, 100, 0)
             self.ani_speed = self.ani_speed_init
-            if self.ani_pos == self.ani_max:
+            if self.ani_pos >= self.ani_max:
                 self.ani_pos = 0
             else:
                 self.ani_pos += 1
@@ -56,14 +50,13 @@ class player1(pygame.sprite.Sprite):
     def set_location(self, loca1, loca2):
         self.location = loca1
         self.atk_location = loca2
-
         self.ani = glob.glob(self.location)
         self.ani.sort()
         self.ani_pos = 0
         self.ani_max = len(self.ani) - 1
         self.img = pygame.image.load(self.ani[0])
         self.img = pygame.transform.flip(self.img, 100, 0)
-        self.update(0)
+        self.updated(0)
 
     #set status
     def set_status(self, lst):
@@ -74,10 +67,10 @@ class player1(pygame.sprite.Sprite):
         self.dp = lst[3]
 
     #name
-    def name_display(self, x, y):
+    def name_display(self, x, y, color = (255, 215, 0)):
         pygame.font.init()
         myfont = pygame.font.SysFont('Comic Sans MS', 20)
-        text = myfont.render(str(self.name), True, (255, 215, 0))
+        text = myfont.render(str(self.name), True, color)
         gameDisplay.blit(text, (x, y))
 
     #status bar
@@ -89,20 +82,14 @@ class player1(pygame.sprite.Sprite):
         gameDisplay.blit(text1, (x, y))
         gameDisplay.blit(text2, (x+80, y))
 
-    #full health bar
-    def full_health_bar(self, x, y):
-        pygame.font.init()
-        myfont = pygame.font.SysFont('Comic Sans MS', 20)
-        text = myfont.render('/'+str(self.max_hp), True, (0, 225, 0))
-        gameDisplay.blit(text, (x, y))
-
-    #health
+    # health
     def health(self, x, y):
         pygame.font.init()
         myfont = pygame.font.SysFont('Comic Sans MS', 20)
-        text = myfont.render(str(self.hp), True, (0, 225, 0))
+        text = myfont.render('HP: ' + str(self.hp), True, (0, 225, 0))
         gameDisplay.blit(text, (x, y))
 
+    '''
     #attack
     def atk(self):
         ani_pos = 0
@@ -117,17 +104,25 @@ class player1(pygame.sprite.Sprite):
             pygame.time.delay(time_delay)
             time_delay = 200
             ani_pos += 1
-            gameDisplay.blit(bg, (0, 0))
+            #gameDisplay.blit(bg, (0, 0))
             gameDisplay.blit(self.img, (self.x, self.y))
             pygame.display.update()
-            gameDisplay.blit(bg, (0, 0))
-        pygame.display.update()
+
+        self.img = pygame.image.load(self.ani[0])
+        self.img = pygame.transform.flip(self.img, 100, 0)
+        pygame.time.delay(time_delay)
+        ani_pos += 1
+        #gameDisplay.blit(bg, (0, 0))
+        #self.updated(0)
+        #gameDisplay.blit(self.img, (self.x, self.y))
+        #pygame.display.update()
+
+        self.ani_pos = 0
         self.ani = glob.glob(self.location)
         self.img = pygame.image.load(self.ani[self.ani_pos])
         self.img = pygame.transform.flip(self.img, 100, 0)
         self.ani_max = len(self.ani) - 1
-
-    '''
+    
     def idle(self):
         ani_pos = 0
         self.img = pygame.transform.flip(self.img, 100, 0)
@@ -139,7 +134,7 @@ class player1(pygame.sprite.Sprite):
             ani_pos += 1
             gameDisplay.blit(bg, (0, 0))
             gameDisplay.blit(self.img, (self.x, self.y))
-            pygame.display.update()
+            pygame.display.updated()
     '''
 
 #----- PLAYER 2 -----
@@ -161,16 +156,12 @@ class player2(pygame.sprite.Sprite):
         self.ani.sort()
         self.ani_pos = 0
         self.ani_max = len(self.ani) - 1
-        #self.img = pygame.image.load(self.ani[0])
-        #self.img = pygame.transform.scale(self.img, (100, 100))
-        #self.rect = self.img.get_rect()
-        #self.update(0)
+        self.die = False
 
     #update
-    def update(self, pos):
+    def updated(self, pos):
         if self.ani_speed == 0:
             self.img = pygame.image.load(self.ani[self.ani_pos])
-            #self.img = pygame.transform.scale(self.img, (100, 100))
             self.rect = self.img.get_rect()
             p1_char_check = self.img
             self.ani_speed = self.ani_speed_init
@@ -189,7 +180,7 @@ class player2(pygame.sprite.Sprite):
         self.ani_pos = 0
         self.ani_max = len(self.ani) - 1
         self.img = pygame.image.load(self.ani[0])
-        self.update(0)
+        self.updated(0)
 
     #set status
     def set_status(self, lst):
@@ -215,26 +206,19 @@ class player2(pygame.sprite.Sprite):
         gameDisplay.blit(text1, (x, y))
         gameDisplay.blit(text2, (x+80, y))
 
-    #full health bar
-    def full_health_bar(self, x, y):
-        pygame.font.init()
-        myfont = pygame.font.SysFont('Comic Sans MS', 20)
-        text = myfont.render('/'+str(self.max_hp), True, (0, 225, 0))
-        gameDisplay.blit(text, (x, y))
-
     #health
     def health(self, x, y):
         pygame.font.init()
         myfont = pygame.font.SysFont('Comic Sans MS', 20)
-        text = myfont.render(str(self.hp), True, (0, 225, 0))
+        text = myfont.render('HP: ' +str(self.hp), True, (0, 225, 0))
         gameDisplay.blit(text, (x, y))
 
+    '''
     #attack
     def atk(self):
         ani_pos = 0
-        self.ani = glob.glob("")
+        self.ani = glob.glob(self.atk_location)
         self.img = pygame.image.load(self.ani[ani_pos])
-        self.img = pygame.transform.flip(self.img, 100, 0)
         self.ani_max = len(self.ani) - 1
         time_delay = 0
         while ani_pos <= self.ani_max:
@@ -246,11 +230,18 @@ class player2(pygame.sprite.Sprite):
             gameDisplay.blit(self.img, (self.x, self.y))
             pygame.display.update()
 
-        self.ani = glob.glob("")
+        self.img = pygame.image.load(self.ani[0])
+        pygame.time.delay(time_delay)
+        ani_pos += 1
+        gameDisplay.blit(bg, (0, 0))
+        gameDisplay.blit(self.img, (self.x, self.y))
+        pygame.display.update()
+
+        self.ani = glob.glob(self.location)
         self.img = pygame.image.load(self.ani[self.ani_pos])
         self.ani_max = len(self.ani) - 1
 
-        '''
+        
         def idle(self):
             ani_pos = 0
             self.img = pygame.transform.flip(self.img, 100, 0)
@@ -262,11 +253,33 @@ class player2(pygame.sprite.Sprite):
                 ani_pos += 1
                 gameDisplay.blit(bg, (0, 0))
                 gameDisplay.blit(self.img, (self.x, self.y))
-                pygame.display.update()
+                pygame.display.updated()
             '''
 
+#========== FUNCTION ==========
 #----- PIC LOCATION -----
 def character_location(num):
+    if num == 1:
+        # Zalana
+        txt = "Picture\\Character\\Female_1\\default\\0\\stand1_*.png"
+    elif num == 2:
+        # Elentriana
+        txt = "Picture\\Character\\Female_2\\default\\0\\stand1_*.png"
+    elif num == 3:
+        # Shaca
+        txt = "Picture\\Character\\Female_3\\default\\0\\stand1_*.png"
+    elif num == 4:
+        # Kazuki
+        txt = "Picture\\Character\\Male_1\\default\\0\\stand1_*.png"
+    elif num == 5:
+        # Lucifer
+        txt = "Picture\\Character\\Male_2\\default\\0\\stand1_*.png"
+    elif num == 6:
+        # Refaian
+        txt = "Picture\\Character\\Male_3\\default\\0\\stand2_*.png"
+    return txt
+#----- DEAD PIC LOCATION -----
+def dead_character_location(num):
     if num == 1:
         # Zalana
         txt = "Picture\\Character\\Female_1\\default\\0\\stand1_*.png"
@@ -321,104 +334,313 @@ def get_status(num):
     return lst
 
 #------ GAME OVER -----
-def gamover():
-    ''' play again (y/n) '''
+def gameOver(winner):
+    pygame.font.init()
+    myfont = pygame.font.SysFont('Comic Sans MS', 150)
+
+    if winner == 1:
+        text = myfont.render("PLAYER 1 WIN!", True, (255, 67, 67))
+    else:
+        text = myfont.render("PLAYER 2 WIN!", True, (255, 67, 67))
+
+    myfont = pygame.font.SysFont('Comic Sans MS', 80)
+    text2 = myfont.render("Press Y to EXIT.", True, (255, 67, 67))
+    gameDisplay.blit(text, (640 - text.get_width() // 2, 360 - text.get_height() // 2))
+    gameDisplay.blit(text2, ((640 - text.get_width() // 2)+200, (360 - text.get_height() // 2)+300))
+    pygame.display.update()
 
 #---------- MAIN ----------
 def main():
     pygame.display.set_caption('D R E A D L I N E ')
     run_game()
-   
+
+#------ SET CHARACTER ------
+def set_character(n1, n2, n3, n4, n5, n6):
+    global player_1_1, player_1_2, player_1_3, \
+            player_2_1, player_2_2, player_2_3
+    # 1 - 1
+    player_1_1 = player1(200, 100)
+    player_1_1.set_location(character_location(n1), character_location_atk(n1))
+    player_1_1.set_status(get_status(n1))
+    # 1 - 2
+    player_1_2 = player1(300, 250)
+    player_1_2.set_location(character_location(n2), character_location_atk(n2))
+    player_1_2.set_status(get_status(n2))
+    # 1 - 3
+    player_1_3 = player1(200, 400)
+    player_1_3.set_location(character_location(n3), character_location_atk(n3))
+    player_1_3.set_status(get_status(n3))
+
+    # 2 - 1
+    player_2_1 = player2(980, 100)
+    player_2_1.set_location(character_location(n4), character_location_atk(n4))
+    player_2_1.set_status(get_status(n4))
+    # 2 - 2
+    player_2_2 = player2(880, 250)
+    player_2_2.set_location(character_location(n5), character_location_atk(n5))
+    player_2_2.set_status(get_status(n5))
+    # 2 - 3
+    player_2_3 = player2(980, 400)
+    player_2_3.set_location(character_location(n6), character_location_atk(n6))
+    player_2_3.set_status(get_status(n6))
+
+#------ ALL RENDER ------
+def all_render():
+    # Background & Rect
+    gameDisplay.blit(bg, (0, 0))
+    pygame.draw.rect(gameDisplay, black, [30, 520, 450, 180])
+    pygame.draw.rect(gameDisplay, black, [800, 520, 450, 180])
+
+    # 1
+    player_1_1.name_display(50, 550)
+    player_1_1.health(165, 550)
+    player_1_1.status_bar(280, 550)
+    # 1 - 2
+    player_1_2.name_display(50, 600)
+    player_1_2.health(165, 600)
+    player_1_2.status_bar(280, 600)
+    # 1 - 3
+    player_1_3.name_display(50, 650)
+    player_1_3.health(165, 650)
+    player_1_3.status_bar(280, 650)
+    # 2 - 1
+    player_2_1.name_display(850, 550)
+    player_2_1.health(950, 550)
+    player_2_1.status_bar(1050, 550)
+    #2 - 2
+    player_2_2.name_display(850, 600)
+    player_2_2.health(950, 600)
+    player_2_2.status_bar(1050, 600)
+    #2 - 3
+    player_2_3.name_display(850, 650)
+    player_2_3.health(950, 650)
+    player_2_3.status_bar(1050, 650)
+
+    player_1_1.updated(0)
+    player_1_2.updated(0)
+    player_1_3.updated(0)
+    player_2_1.updated(0)
+    player_2_2.updated(0)
+    player_2_3.updated(0)
+
+#----- ATTACKING ANIMATION -----
+def attack_animation(num):
+    if num == 1:
+        temp = player_1_1
+    elif num == 2:
+        temp = player_1_2
+    elif num == 3:
+        temp = player_1_3
+    elif num == 4:
+        temp = player_2_1
+    elif num == 5:
+        temp = player_2_2
+    elif num == 6:
+        temp = player_2_3
+
+    if temp.die == False:
+        ani_pos = 0
+        temp.ani = glob.glob(temp.atk_location)
+        temp.img = pygame.image.load(temp.ani[ani_pos])
+        if num in range(1, 4):
+            temp.img = pygame.transform.flip(temp.img, 100, 0)
+        temp.ani_max = len(temp.ani) - 1
+        time_delay = 0
+        while ani_pos <= temp.ani_max:
+            temp.img = pygame.image.load(temp.ani[ani_pos])
+            if num in range(1, 4):
+                temp.img = pygame.transform.flip(temp.img, 100, 0)
+            pygame.time.delay(time_delay)
+            time_delay = 200
+            ani_pos += 1
+            gameDisplay.blit(bg, (0, 0))
+            gameDisplay.blit(temp.img, (temp.x, temp.y))
+            all_render()
+            pygame.display.update()
+            temp.img = pygame.image.load(temp.ani[0])
+            if num in range(1, 4):
+                temp.img = pygame.transform.flip(temp.img, 100, 0)
+        pygame.time.delay(time_delay)
+        ani_pos += 1
+
+        temp.ani_pos = 0
+        temp.ani = glob.glob(temp.location)
+        temp.img = pygame.image.load(temp.ani[temp.ani_pos])
+        if num in range(1, 4):
+            temp.img = pygame.transform.flip(temp.img, 100, 0)
+            temp.ani_max = len(temp.ani) - 1
+
+#----- DAMAGE CALCULATION -----
+def dmg_cal(char1, char2, turn):
+    # Attacker, Defender
+    if turn == 1:
+        # Attacker
+        if char1 == 1:
+            attacker = player_1_1
+        elif char1 == 2:
+            attacker = player_1_2
+        elif char1 == 3:
+            attacker = player_1_3
+        # Defender
+        if char2 == 1:
+            defender = player_2_1
+        elif char2 == 2:
+            defender = player_2_2
+        elif char2 == 3:
+            defender = player_2_3
+
+    elif turn == 2:
+        # Attacker
+        if char1 == 1:
+            attacker = player_2_1
+        elif char1 == 2:
+            attacker = player_2_2
+        elif char1 == 3:
+            attacker = player_2_3
+        # Defender
+        if char2 == 1:
+            defender = player_1_1
+        elif char2 == 2:
+            defender = player_1_2
+        elif char2 == 3:
+            defender = player_1_3
+
+    if defender.hp > 0 and attacker.die == False:
+        dmg = (attacker.ap + random.randint(-5, 5)) - (defender.dp * 0.05)
+        if defender.hp - dmg <= 0:
+            defender.hp = 0
+            defender.die = True
+            if turn == 1:
+                dead(defender, char2)
+                dead_character_location(char2)
+            elif turn == 2:
+                dead(defender, char2+3)
+                dead_character_location(char2+3)
+        else:
+            defender.hp -= dmg
+
+#----- Dead body -----
+def dead(char, num):
+    if num == 1:
+        # Zalana
+        char.location = "Picture\\Character\\Female_1\\default\\0\\dead.png"
+    elif num == 2:
+        # Elentriana
+        char.location = "Picture\\Character\\Female_2\\default\\0\\dead.png"
+    elif num == 3:
+        # Shaca
+        char.location = "Picture\\Character\\Female_3\\default\\0\\dead.png"
+    elif num == 4:
+        # Kazuki
+        char.location = "Picture\\Character\\Male_1\\default\\0\\dead.png"
+    elif num == 5:
+        # Lucifer
+        char.location = "Picture\\Character\\Male_2\\default\\0\\dead.png"
+    elif num == 6:
+        # Refaian
+        char.location = "Picture\\Character\\Male_3\\default\\0\\dead.png"
+    char.die = True
+    char.updated(0)
+
+#----- CHECK DEAD COUNT P1 -----
+def check_p1():
+    count = 0
+    lst = [player_1_1, player_1_2, player_1_3]
+    for i in lst:
+        if i.die == True:
+            count += 1
+    return count
+
+#----- CHECK DEAD COUNT P2 -----
+def check_p2():
+    count = 0
+    lst = [player_2_1, player_2_2, player_2_3]
+    for i in lst:
+        if i.die == True:
+            count += 1
+    return count
+
 #--------- START -----------
 def run_game():
-    #1 - 1
-    player_1_1 = player1(200, 100)
-    player_1_1.set_location(character_location(2), character_location_atk(2))
-    player_1_1.set_status(get_status(2))
-    #1 - 2
-    player_1_2 = player1(300, 250)
-    player_1_2.set_location(character_location(5), character_location_atk(5))
-    player_1_2.set_status(get_status(5))
-    #1 - 3
-    player_1_3 = player1(200, 400)
-    player_1_3.set_location(character_location(6), character_location_atk(6))
-    player_1_3.set_status(get_status(6))
 
-    #2 - 1
-    player_2_1 = player2(980, 100)
-    player_2_1.set_location(character_location(1), character_location_atk(1))
-    player_2_1.set_status(get_status(1))
-    #2 - 2
-    player_2_2 = player2(880, 250)
-    player_2_2.set_location(character_location(3), character_location_atk(3))
-    player_2_2.set_status(get_status(3))
-    #2 - 3
-    player_2_3 = player2(980, 400)
-    player_2_3.set_location(character_location(4), character_location_atk(4))
-    player_2_3.set_status(get_status(4))
+    set_character(5, 2, 6, 3, 1, 4)
 
-    gameDisplay.blit(bg, (0, 0))
-    pygame.draw.rect(gameDisplay, white, [100, 200, 400, 500])
+    gameExit = False
+    gameOver_check = False
+    gameOver_check_2 = 0
+
+    turn = 0
+    select = []
+    global p1_count, p2_count
+    p1_count, p2_count = 0, 0
 
     clock = pygame.time.Clock()
-    gameExit = False
-
     pygame.display.update()
 
     while not gameExit:
-        # Background
-        gameDisplay.blit(bg, (0, 0))
-        pygame.draw.rect(gameDisplay, black, [30, 520, 450, 180])
-        pygame.draw.rect(gameDisplay, black, [800, 520, 450, 180])
+        all_render()
+        if check_p1() == 3:
+            gameOver_check = True
+            gameOver_check_2 = 1
 
-        # 1
-        player_1_1.name_display(50, 550)
-        player_1_1.full_health_bar(200, 550)
-        player_1_1.health(165, 550)
-        player_1_1.status_bar(280, 550)
+        elif check_p2() == 3:
+            gameOver_check = True
+            gameOver_check_2 = 2
 
-        player_1_2.name_display(50, 600)
-        player_1_2.full_health_bar(200, 600)
-        player_1_2.health(165, 600)
-        player_1_2.status_bar(280, 600)
+        while gameOver_check == True:
+            if gameOver_check_2 == 1:
+                gameOver(1)
+            else:
+                gameOver(2)
 
-        player_1_3.name_display(50, 650)
-        player_1_3.full_health_bar(200, 650)
-        player_1_3.health(165, 650)
-        player_1_3.status_bar(280, 650)
-
-        # 2
-        player_2_1.name_display(850, 550)
-        player_2_1.full_health_bar(985, 550)
-        player_2_1.health(950, 550)
-        player_2_1.status_bar(1050, 550)
-
-        player_2_2.name_display(850, 600)
-        player_2_2.full_health_bar(985, 600)
-        player_2_2.health(950, 600)
-        player_2_2.status_bar(1050, 600)
-
-        player_2_3.name_display(850, 650)
-        player_2_3.full_health_bar(985, 650)
-        player_2_3.health(950, 650)
-        player_2_3.status_bar(1050, 650)
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_y:
+                        gameExit = True
+                        gameOver_check = False
 
         for event in pygame.event.get():
-
             #print("EVENT:  ",event)
             if event.type == pygame.QUIT:
                 gameExit = True
-                pygame.display.update()
-            elif event.type == pygame.KEYUP and event.key == pygame.K_UP:
-                player_1_1.atk()
+            elif event.type == pygame.KEYUP and event.key == pygame.K_1:
+                if turn % 2 == 0:
+                    if player_1_1.die == False:
+                        select.append(1)
+                    else:
+                        dead(player_1_1)
+                elif turn % 2 == 1:
+                    if player_2_1.die == False:
+                        select.append(1)
+            elif event.type == pygame.KEYUP and event.key == pygame.K_2:
+                if turn % 2 == 0:
+                    if player_1_2.die == False:
+                        select.append(2)
+                elif turn % 2 == 1:
+                    if player_2_2.die == False:
+                        select.append(2)
+            elif event.type == pygame.KEYUP and event.key == pygame.K_3:
+                if turn % 2 == 0:
+                    if player_1_3.die == False:
+                        select.append(3)
+                elif turn % 2 == 1:
+                    if player_2_3.die == False:
+                        select.append(3)
 
-        player_1_1.update(0)
-        player_1_2.update(0)
-        player_1_3.update(0)
-        player_2_1.update(0)
-        player_2_2.update(0)
-        player_2_3.update(0)
-
+        if len(select) == 2:
+            if turn % 2 == 0:
+                print('PLAYER 1', 'TURN:', turn)
+                print(select)
+                attack_animation(select[0])
+                dmg_cal(select[0], select[1], 1)
+            else:
+                print('PLAYER 2', 'TURN:', turn)
+                print(select)
+                attack_animation(select[0]+3)
+                dmg_cal(select[0], select[1], 2)
+            select = []
+            turn += 1
+        all_render()
         pygame.display.update()
         clock.tick(60)
 
