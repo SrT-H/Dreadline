@@ -1,7 +1,7 @@
 while True:
     hp = int(input("HP: "))
-    atk = int(input("ATK: "))
     armor = int(input("ARMOR: "))
+    atk = int(input("ATK: "))
     #effective HP = base HP × (1 + 0.05 × armor)
     #dmg_reduc = (0.05 * armor) / (1 + 0.05 * armor)
     
@@ -19,9 +19,13 @@ while True:
         x = 3/4*2
         
     #eff_hp = hp * (1 + 0.05 * armor)
-    dmg = atk-(armor*0.05)
+    if armor > 50:
+        dmg = atk-(armor*0.05)
+    else:
+        dmg = (atk-(armor*0.05))*1/5
     
     #print("EFF_HP:", eff_hp)
     #print("DMG:", dmg_reduc)
     print("DMG:", dmg)
+    print("HP: ", hp-dmg)
     print('-------------\n')

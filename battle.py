@@ -6,6 +6,7 @@ gameDisplay = pygame.display.set_mode((1280, 720))
 black = (0, 0, 0)
 white = (255, 255, 255)
 
+pygame.display.set_caption('D R E A D L I N E ')
 bg = pygame.image.load("Picture\\BG\\background.png")
 bg = pygame.transform.scale(bg, (1280, 720))
 gameDisplay.blit(bg, (0, 0))
@@ -365,11 +366,6 @@ def show_turn(count):
     gameDisplay.blit(text, (530 , 20))
     pygame.display.update()
 
-#---------- MAIN ----------
-def main():
-    pygame.display.set_caption('D R E A D L I N E ')
-    run_game()
-
 #------ SET CHARACTER ------
 def set_character(n1, n2, n3, n4, n5, n6):
     global player_1_1, player_1_2, player_1_3, \
@@ -564,8 +560,9 @@ def check_p2():
             count += 1
     return count
 
-#--------- START -----------
-def run_game():
+'''
+#--------- TEST -----------
+def TEST():
 
     set_character(5, 2, 6, 3, 1, 4)
 
@@ -651,5 +648,5 @@ def run_game():
 
     pygame.quit()
     quit()
-    
-main()
+'''
+
