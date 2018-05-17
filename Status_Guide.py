@@ -1,4 +1,6 @@
 import pygame
+from Dreadline import Image
+from Character_Selection import Button
 from Guide import *
 from Type_Guide import *
 
@@ -16,6 +18,24 @@ pygame.display.set_icon(logo)
 pygame.display.set_caption(caption)
 screen = pygame.display.set_mode((display_width, display_height))
 screen.fill(black)
+
+
+class GuideImage(Image):
+    def __init__(self, pos_x, pos_y, image_name):
+        self.pos_x = pos_x
+        self.pos_y = pos_y
+        self.bg_image = 'Picture\Guide\%s.png' % image_name
+        self.draw()
+
+
+class NextPageButton(Button):
+    def __init__(self, pos_x, pos_y, image_name):
+        self.pos_x = pos_x
+        self.pos_y = pos_y
+        self.width = 70
+        self.height = 70
+        self.bg_image = 'Picture\Guide\%s.png' % image_name
+        self.draw()
 
 
 class StatusGuide:
