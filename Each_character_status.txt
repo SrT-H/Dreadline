@@ -1,0 +1,29 @@
+Elentriana:
+            HP: 80
+            DP: 50
+            AP: 15
+
+Zalana:
+            HP: 110
+            DP: 100
+            AP: 5
+
+Shaca:
+            HP:75
+            DP:35
+            AP:20
+
+Kazuki:
+            HP: 60
+            DP: 75
+            AP: 35
+
+Lucifer:
+            HP: 60
+            DP: 50
+            AP: 40
+
+Refaian:
+            HP: 100
+            DP: 100
+            AP: 7

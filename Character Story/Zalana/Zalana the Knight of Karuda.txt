@@ -1,0 +1,17 @@
+Zalana the Knight of Karuda
+Age: 25
+Height: 168
+Weight: 50
+
+Story: Karuda's Church is the most powerful religion troop in the land of Dreadline.
+The Karuda instruct its disciples to believe in god and execute every heretics who not follow the religion's dogma.
+Zalana is the current cheif of Karuda's knight, she both doing her job as a knight and an executioner who protect the Church, eliminate all kind of enemy and slay heretics.
+She sworn to protect her people and her country, so she became a knight since she was young.
+In the past, Zalana is just a deputy cheif but since her beloved cheif has gone missing, she promoted to be the chief by the Archbishop immediately, left the girl confused where is he gone?
+
+HP: 110
+DP: 100
+AP: 5
+
+Passive Skills:	1. Heal: With her pure mind, Zalana prey to the god and borrow his power to cure herself and her colleagues. Every 4 turns, Zalana perform healing magic to restore herself for 10 HP. Zalana cannot attack this turn.
+		2. Shield of Protection: Zalana use her sacred shield to guard herself, reduce damage taking from enemies by 20 percent.

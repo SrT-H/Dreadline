@@ -50,12 +50,12 @@ class dreadline:
         
         while not self.gameExit:
             for event in pygame.event.get():
-                #print(event) check event in window
+                #print(event) #check event in window
                 mPos = pygame.mouse.get_pos()
                 mPress = pygame.mouse.get_pressed()
                 mLPress = pygame.mouse.get_pressed()[0] #check left click | 1 = click
                 print(mPos, mLPress)
-                #print(mPos, mPress)
+
                 if event.type == pygame.QUIT:
                     self.gameExit = True
                              
